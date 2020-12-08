@@ -3,8 +3,9 @@ import time
 from selenium import webdriver
 
 
+
 def pytest_addoption(parser):
-    parser.addoption('--language', action='store', default=None,
+    parser.addoption('--language', action='store', default="en-gb",
                      help="Choose language")
 
 
@@ -15,7 +16,7 @@ def browser(request):
     browser = webdriver.Chrome()
     link = f"http://selenium1py.pythonanywhere.com/{browser_lang}/catalogue/coders-at-work_207/"
     browser.get(link)
-    time.sleep(30)
+    time.sleep(3)
 
     yield browser
 
